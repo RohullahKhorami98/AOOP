@@ -1,0 +1,7 @@
+3 : With Immutable classes means that once an object is create, we can not change its content There are
+lots of classes in API-in java for example Class Constructor<T> : Constructor provides information about, and access to, a single constructor for a class.
+scanner: A simple text scanner which can parse primitive types and strings using regular expressions.
+Long : The Long class wraps a value of the primitive type long in an object.   
+
+10: A polymorgphism object can be sorted differently in different 
+categories. Because they can belong in more than one category.
