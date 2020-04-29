@@ -15,10 +15,12 @@ public class Signal {
 	}
 
 	public Signal() {
+		
+		DefaultSampler ds = new DefaultSampler();
 		myObservers = new ArrayList<SignalObserver>();
 		Timer t = new Timer(SAMPLING, new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				nextValue(Math.random() * 10);
+				nextValue(ds.read());
 			}
 		});
 		t.start();

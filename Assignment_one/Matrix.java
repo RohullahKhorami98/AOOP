@@ -8,32 +8,17 @@ public class Matrix {
 		return element;
 		
 	}
-
-	public void setElement(double[][] element) {
-		this.element = element;
-	}
-
-	public int getRow() {
-		return row;
-	}
-
-	public void setRow(int row) {
-		this.row = row;
-	}
-
-	public int getCol() {
-		return col;
-	}
-
-	public void setCol(int col) {
-		this.col = col;
-	}
-
+	
 	public Matrix(int row, int col) {
-		element = new double [row][col];
-		this.row = row;
-		this.col = col;
+		if(row > 0 && col > 0) {
+			element = new double [row][col];
+			this.row = row;
+			this.col = col;
+		}else {
+			element = null;
+		}
 	}
+	
  
     public static void main(String[] args) {
     
@@ -93,10 +78,20 @@ public class Matrix {
     	return s;
     }
     public void set(int r,int c ,double val) {
-    	element[r][c] = val;
+    	if(r < element.length && c < element[0].length) {
+    		element[r][c] = val;
+    	}else {
+    		System.out.println("error: out of bounds");
+    	}
     }
+    
     public double get(int r,int c) {
-    	return element[r][c];
+    	if(r < element.length && c < element[0].length) {
+    		return element[r][c];
+    	}else {
+    		System.out.println("error: out of bounds");
+    		return 0;
+    	}
     }
     
 
