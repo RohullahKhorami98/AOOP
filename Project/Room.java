@@ -1,29 +1,39 @@
 import java.awt.Canvas;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
-public class Room extends Canvas{
-
-	String name [] = {"table.png"};	
-	
-	
+public class Room extends JPanel{
 	public Room() {
+		
+		addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				moveFurniture(e.getX(), e.getY());
+			}
+		});
+		addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseDragged(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+
+	}
+	
+	private void moveFurniture(int i, int j) {
 		
 	}
 	
-	public void paint(Graphics g) {
-		try {
+	public void paintComponent(Graphics g) {
 		
-		
-		BufferedImage img = ImageIO.read(new File("/Users/rohullahkhorami/Desktop/AOOP/Assginement/Project/src/" + name[0]));
-		
-		g.drawImage(img,0,0,null);
-		}catch(Exception e) {
-			System.out.println(e);
-		}
 	}
 }
