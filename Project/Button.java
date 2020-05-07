@@ -1,9 +1,15 @@
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 public abstract class Button implements ActionListener {
+
+	ArrayList<Labelpos> list = new ArrayList<>();
 
 	public Button() {
 
@@ -38,55 +44,64 @@ public abstract class Button implements ActionListener {
 
 		buttons[7] = new JButton("     Bed    ");
 		buttons[7].setForeground(Color.red);
-		
-		
+
 		buttons[8] = new JButton("  Carpet  ");
 		buttons[8].setForeground(Color.blue);
-		
+
 		buttons[9] = new JButton("D-Table");
 		buttons[9].setForeground(Color.decode("#A01A9C"));
 
 		buttons[0].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Display.setlabel(new Chair());
+
+				Furniture c = new Furniture("chair.png");
+				Labelpos temp = new Labelpos(c, c.xp, c.yp);
+				list.add(temp);
+				for (Labelpos value : list) {
+					System.out.println(value.getX() + " " + value.getY());
+					Display.setlabel(value.getLabel());
+					value.getLabel().update(value.getX() + c.xp, value.getY() + c.yp);
+				}
+
 			}
 		});
 		buttons[1].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Display.setlabel(new Table());
+				Display.setlabel(new Furniture("table2.png"));
+
 			}
 		});
 		buttons[2].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Display.setlabel(new Sofa());
+				Display.setlabel(new Furniture("soffa.png"));
 			}
 		});
 		buttons[3].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Display.setlabel(new ArmChair());
+				Display.setlabel(new Furniture("armchairleader.png"));
 			}
 		});
 		buttons[4].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Display.setlabel(new Wardrobe());
+				Display.setlabel(new Furniture("wardrobe.png"));
 			}
 		});
 		buttons[5].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Display.setlabel(new Light());
+				Display.setlabel(new Furniture("light.png"));
 			}
 		});
 		buttons[6].addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Display.setlabel(new TV());
+				Display.setlabel(new Furniture("tv.png"));
 			}
 
 		});
@@ -95,7 +110,7 @@ public abstract class Button implements ActionListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Display.setlabel(new Bed());
+				Display.setlabel(new Furniture("bed.png"));
 
 			}
 
@@ -104,7 +119,7 @@ public abstract class Button implements ActionListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Display.setlabel(new Carpet());
+				Display.setlabel(new Furniture("carpet.png"));
 
 			}
 
@@ -113,7 +128,7 @@ public abstract class Button implements ActionListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Display.setlabel(new DTable());
+				Display.setlabel(new Furniture("diningtable.png"));
 
 			}
 

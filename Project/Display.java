@@ -17,9 +17,6 @@ public class Display extends Button {
 	static Room panel;
 	JTextArea text;
 	JPanel buttonpanel;
-	String info[] = { "Chiar", "Table", "Sofa", "ArmChair", "WarDrope", "light", "TV" };
-	static String image_list[] = {};
-	static int currentImage;
 	public Display() {
 		panel = new Room();
 		
@@ -49,7 +46,6 @@ public class Display extends Button {
 		for (int i = 0; i < nrOfButtons; i++) {
 			buttonpanel.add(buttons[i]);
 			buttonpanel.add(Box.createVerticalGlue());
-
 		}
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
