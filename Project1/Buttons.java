@@ -36,9 +36,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				Frame.text.setText("Chair");
-
-				d.insert(p.x, p.y, p.h, p.w);
-
+				d.insert(0, 0, p.h, p.w , p.s);
 				Frame.frame.add(d);
 
 			}
@@ -48,7 +46,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				Frame.text.setText("Bed");
-				d.insert(p.x, p.y, p.h, p.w);
+				d.insert(0, 0, p.h, p.w , p.s);
 				Frame.frame.add(d);
 
 			}
@@ -58,7 +56,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				Frame.text.setText("Soffa");
-				d.insert(p.x, p.y, p.h, p.w);
+				d.insert(0, 0, p.h, p.w, p.s);
 				Frame.frame.add(d);
 
 			}
@@ -68,7 +66,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				Frame.text.setText("Light");
-				d.insert(p.x, p.y, p.h, p.w);
+				d.insert(0, 0, p.h, p.w , p.s);
 				Frame.frame.add(d);
 
 			}
@@ -78,7 +76,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				Frame.text.setText("TV");
-				d.insert(p.x, p.y, p.h, p.w);
+				d.insert(0, 0, p.h, p.w , p.s);
 				Frame.frame.add(d);
 
 			}
@@ -88,7 +86,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				Frame.text.setText("Wardrobe");
 				p = new Positions();
-				d.insert(p.x, p.y, p.h, p.w);
+				d.insert(0, 0, p.h, p.w, p.s );
 				Frame.frame.add(d);
 
 			}

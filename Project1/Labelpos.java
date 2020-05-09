@@ -6,14 +6,28 @@ public class Labelpos {
 	private int y;
 	private int height;
 	private int width;
-
-	public Labelpos(int x, int y, int height, int width) {
+	private int c ; 
+	
+	public Labelpos(int x, int y, int height, int width , int c ) {
 
 		this.x = x;
 		this.y = y;
 		this.height = height;
 		this.width = width;
+		this.c = c;
+		
 	}
+
+
+	public int getC() {
+		return c;
+	}
+
+
+	public void setC(int c) {
+		this.c = c;
+	}
+
 
 	public int getX() {
 		return x;
