@@ -1,29 +1,22 @@
+package Project;
+
 public class Labelpos {
-	private Furniture label;
-	
+
 	private int x;
 	private int y;
-	
-	public Labelpos() {
-		
-	}
-	
-	public Labelpos(Furniture label, int x, int y) {
-		this.label = label;
+	private int height;
+	private int width;
+
+	public Labelpos(int x, int y, int height, int width) {
+
 		this.x = x;
 		this.y = y;
-	}
-
-	public Furniture getLabel() {
-		return label;
-	}
-
-	public void setLabel(Furniture label) {
-		this.label = label;
+		this.height = height;
+		this.width = width;
 	}
 
 	public int getX() {
-		return label.getX();
+		return x;
 	}
 
 	public void setX(int x) {
@@ -31,15 +24,27 @@ public class Labelpos {
 	}
 
 	public int getY() {
-		return label.getY();
+		return y;
 	}
 
 	public void setY(int y) {
 		this.y = y;
 	}
-	
-	
-	
-	
-	
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
 }
