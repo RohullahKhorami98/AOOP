@@ -9,8 +9,9 @@ public class Labelpos {
 	private int c ; 
 	private int shape;
 	private String name;
+	private int id; 
 	
-	public Labelpos(int x, int y, int height, int width , int c, int shape , String name ) {
+	public Labelpos(int x, int y, int height, int width , int c, int shape , String name , int id ) {
 
 		this.x = x;
 		this.y = y;
@@ -19,7 +20,18 @@ public class Labelpos {
 		this.c = c;
 		this.shape = shape;
 		this.name = name;
+		this.id = id;
 		
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 

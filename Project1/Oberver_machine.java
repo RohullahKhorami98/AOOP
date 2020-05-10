@@ -13,6 +13,9 @@ public class Oberver_machine {
 	
 	public void set_label_list(Labelpos temp) {
 		label_list.add(temp);
+		for(int i = 0; i< label_list.size() ; i++) {
+			label_list.get(i).setId(i);
+		}
 		update();
 	}
 	public ArrayList<Labelpos> get_label_list() {
@@ -25,6 +28,15 @@ public class Oberver_machine {
 		for(Obeserver temp : mylist) {
 			temp.update(label_list);
 		}
+	}
+	
+	public void Remove_id(int r) {
+		
+		label_list.remove(r);
+		for(int i = 0; i< label_list.size() ; i++) {
+			label_list.get(i).setId(i);
+		}
+		update();
 	}
 	
 }

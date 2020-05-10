@@ -217,7 +217,7 @@ class Drawing extends JPanel implements Obeserver {
 		addall();
 
 		if (!firsttime) {
-			checker++;
+			checker = labellist.size()-1;
 		}
 		firsttime = false;
 	}
@@ -237,4 +237,7 @@ class Drawing extends JPanel implements Obeserver {
 		repaint();
 	}
 
+	public void check_updater(int checking) {
+		checker = checking;
+	}
 }

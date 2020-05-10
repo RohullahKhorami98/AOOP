@@ -1,4 +1,5 @@
 package Project;
+
 import java.awt.AWTException;
 import java.awt.Desktop;
 import java.awt.Graphics2D;
@@ -88,7 +89,7 @@ public class Menu extends JMenuBar {
 					int dialog = JOptionPane.showConfirmDialog(null, "Are you sure you want to save?", "Save",
 							JOptionPane.YES_NO_OPTION);
 					if (dialog == JOptionPane.YES_OPTION) {
-						ImageIO.write(work, "jpeg", new java.io.File("First" + (int )(Math.random() * 100) + ".jpeg"));
+						ImageIO.write(work, "jpeg", new java.io.File("First" + (int) (Math.random() * 100) + ".jpeg"));
 					} else {
 						remove(dialog);
 					}
