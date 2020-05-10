@@ -7,15 +7,39 @@ public class Labelpos {
 	private int height;
 	private int width;
 	private int c ; 
+	private int shape;
+	private String name;
 	
-	public Labelpos(int x, int y, int height, int width , int c ) {
+	public Labelpos(int x, int y, int height, int width , int c, int shape , String name ) {
 
 		this.x = x;
 		this.y = y;
 		this.height = height;
 		this.width = width;
 		this.c = c;
+		this.shape = shape;
+		this.name = name;
 		
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public int getShape() {
+		return shape;
+	}
+
+
+	public void setShape(int shape) {
+		this.shape = shape;
 	}
 
 

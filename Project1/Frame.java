@@ -15,26 +15,28 @@ import javax.swing.LayoutStyle;
 public class Frame extends Buttons {
 	static JFrame frame;
 	static JPanel ButtonPanel;
+	static ShopList textlist;
 	static JTextArea text;
-	static JTextArea ListText;
+	
 	static JPanel menuPanel;
-	Drawing d;
+	static Drawing d;
+	static Oberver_machine observer;
 	
 	public Frame() {
 		
 		frame = new JFrame();
+		d = new Drawing();
+		observer = new Oberver_machine();
 		menuPanel = new JPanel();
 		ButtonPanel = new JPanel();
-		
 		text = new JTextArea();
-		ListText = new JTextArea();
+		textlist = new ShopList();
 		frame.setSize(800, 800);
 		text.setPreferredSize(new Dimension(100, 100));
 		text.setBorder(BorderFactory.createLineBorder(Color.decode("#998A3F"), 2));
-		ListText.setPreferredSize(new Dimension(100, 100));
-		ListText.setBorder(BorderFactory.createLineBorder(Color.decode("#998A3F"), 2));
+		frame.add(d, BorderLayout.CENTER);
 		frame.add(text, BorderLayout.SOUTH);
-		frame.add(ListText, BorderLayout.WEST);
+		frame.add(textlist, BorderLayout.WEST);
 		ButtonPanel.setLayout(new BoxLayout(ButtonPanel, BoxLayout.Y_AXIS));
 		ButtonPanel.setBorder(BorderFactory.createLineBorder(Color.decode("#998A3F"), 2));
 		frame.add(ButtonPanel, BorderLayout.LINE_END);
@@ -46,7 +48,8 @@ public class Frame extends Buttons {
 		Menu b = new Menu();
 		b.setBorder(BorderFactory.createLineBorder(Color.decode("#998A3F"), 2));
 		frame.setJMenuBar(b);
-		frame.add(menuPanel, BorderLayout.CENTER);
+		observer.attach(textlist);
+		observer.attach(d);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 

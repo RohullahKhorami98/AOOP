@@ -8,12 +8,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.border.LineBorder;
 
 public abstract class Buttons extends JButton implements ActionListener {
 
 	JButton[] button;
 	public int size = 6;
-	Drawing d;
 	Positions p;
 
 	public Buttons() {
@@ -22,8 +22,6 @@ public abstract class Buttons extends JButton implements ActionListener {
 
 	public void ButtonClick() {
 		button = new JButton[size];
-		d = new Drawing();
-
 		button[0] = new JButton("Chair");
 		button[1] = new JButton("Bed");
 		button[2] = new JButton("Soffa");
@@ -36,8 +34,9 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				Frame.text.setText("Chair");
-				d.insert(0, 0, p.h, p.w , p.s);
-				Frame.frame.add(d);
+				Labelpos  temp = new Labelpos(0, 0, p.h, p.w , p.s, p.shape , "Chair");
+				Frame.observer.set_label_list(temp);
+				
 
 			}
 		});
@@ -46,8 +45,9 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				Frame.text.setText("Bed");
-				d.insert(0, 0, p.h, p.w , p.s);
-				Frame.frame.add(d);
+				Labelpos  temp = new Labelpos(0, 0, p.h, p.w , p.s, p.shape , "Bed");
+				Frame.observer.set_label_list(temp);
+				
 
 			}
 		});
@@ -56,8 +56,9 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				Frame.text.setText("Soffa");
-				d.insert(0, 0, p.h, p.w, p.s);
-				Frame.frame.add(d);
+				Labelpos  temp = new Labelpos(0, 0, p.h, p.w , p.s, p.shape , "soffa");
+				Frame.observer.set_label_list(temp);
+				
 
 			}
 		});
@@ -66,8 +67,9 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				Frame.text.setText("Light");
-				d.insert(0, 0, p.h, p.w , p.s);
-				Frame.frame.add(d);
+				Labelpos  temp = new Labelpos(0, 0, p.h, p.w , p.s, p.shape , "Light");
+				Frame.observer.set_label_list(temp);
+				
 
 			}
 		});
@@ -76,8 +78,9 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				Frame.text.setText("TV");
-				d.insert(0, 0, p.h, p.w , p.s);
-				Frame.frame.add(d);
+				Labelpos  temp = new Labelpos(0, 0, p.h, p.w , p.s, p.shape , "TV");
+				Frame.observer.set_label_list(temp);
+				
 
 			}
 		});
@@ -86,16 +89,17 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				Frame.text.setText("Wardrobe");
 				p = new Positions();
-				d.insert(0, 0, p.h, p.w, p.s );
-				Frame.frame.add(d);
+				Labelpos  temp = new Labelpos(0, 0, p.h, p.w , p.s, p.shape , "Wardrobe");
+				Frame.observer.set_label_list(temp);
+				
+				
 
 			}
 		});
-
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+			
 	}
 }
