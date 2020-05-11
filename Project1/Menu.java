@@ -1,25 +1,23 @@
-package Project;
 
-import java.awt.AWTException;
 import java.awt.Desktop;
-import java.awt.Graphics2D;
-import java.awt.Robot;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import javax.imageio.ImageIO;
+import java.util.ArrayList;
+import java.util.Scanner;
 import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 @SuppressWarnings("serial")
-public class Menu extends JMenuBar {
+public class Menu extends JMenuBar{
 
 	static JMenu File;
 	static JMenu HELP;
@@ -31,14 +29,16 @@ public class Menu extends JMenuBar {
 	static JMenuItem close;
 	static JMenuItem open;
 	static JMenuItem search;
+	static ArrayList<Labelpos> LabelposList;
 
 	public Menu() {
-
+		
 		new JMenuBar();
 		menu_bar();
 		add(File);
 		add(Edit);
 		add(HELP);
+		LabelposList = new ArrayList<Labelpos>();
 
 	}
 
@@ -60,41 +60,64 @@ public class Menu extends JMenuBar {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser select = new JFileChooser();
-				FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & GIF Images", "jpg", "gif");
-				select.setFileFilter(filter);
-				int returnVal = select.showOpenDialog(getParent());
-				if (returnVal == JFileChooser.APPROVE_OPTION) {
-					select.getSelectedFile().getName();
+				int returnValue = select.showOpenDialog(null);
+				if (returnValue == JFileChooser.APPROVE_OPTION) {
+					
+					File selectedFile = select.getSelectedFile();
+					Scanner sc;
+					ArrayList<Labelpos> labellist = new ArrayList<Labelpos>();
+					
+					try {
+						sc = new Scanner(selectedFile);
+						while(sc.hasNext()) {
+						labellist.add(new Labelpos(sc.nextInt(), sc.nextInt(), sc.nextInt(), sc.nextInt(), sc.nextInt(), sc.nextInt(), sc.next(), sc.nextInt()));
+					}
+						
+						Frame.observer.set_new_list(labellist);
+
+					} catch (FileNotFoundException e1) {
+						e1.printStackTrace();
+					}
 				}
 			}
-
 		});
 		File.add(open);
 
 		Save = new JMenuItem("Save");
 		Save.addActionListener(new ActionListener() {
-			@SuppressWarnings("deprecation")
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BufferedImage work = null;
-				try {
-					work = new Robot().createScreenCapture(Frame.menuPanel.bounds());
-				} catch (AWTException e1) {
-
+				String save = "";
+				for(Labelpos i: Drawing.labellist) {
+					save += i.getX();
+					save += " " + i.getY();
+					save += " " + i.getHeight();
+					save += " " + i.getWidth();
+					save += " " + i.getC();
+					save += " " + i.getShape();
+					save += " " + i.getName();
+					save += " " + i.getId();
+					save += "\n";
+				}
+				System.out.println(save);
+				JFileChooser fileChooser = new JFileChooser();
+			    int retval = fileChooser.showSaveDialog(null);
+			    if (retval == JFileChooser.APPROVE_OPTION) {
+			      File file = fileChooser.getSelectedFile();
+			      
+				  System.out.println(file.getPath());
+				                                                   
+				  
+				  try {
+					PrintWriter out = new PrintWriter(file.getPath());
+					out.println(save);
+					out.close();
+				} catch (FileNotFoundException e1) {
 					e1.printStackTrace();
 				}
-				Graphics2D graphics2D = work.createGraphics();
-				Frame.menuPanel.paint(graphics2D);
-				try {
-					int dialog = JOptionPane.showConfirmDialog(null, "Are you sure you want to save?", "Save",
-							JOptionPane.YES_NO_OPTION);
-					if (dialog == JOptionPane.YES_OPTION) {
-						ImageIO.write(work, "jpeg", new java.io.File("First" + (int) (Math.random() * 100) + ".jpeg"));
-					} else {
-						remove(dialog);
-					}
-				} catch (Exception e1) {
-				}
+
+			    }
 			}
 		});
 		File.add(Save);

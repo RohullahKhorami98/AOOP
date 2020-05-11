@@ -1,4 +1,3 @@
-package Project;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -12,7 +11,7 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 class Drawing extends JPanel implements Obeserver {
-	ArrayList<Labelpos> labellist;
+	static ArrayList<Labelpos> labellist;
 	int checker = 0;
 	Boolean firsttime = true;
 
@@ -65,147 +64,146 @@ class Drawing extends JPanel implements Obeserver {
 		super.paintComponent(g);
 		for (Labelpos temp : labellist) {
 
-			if (temp.getC() == 1) {
-				if (temp.getShape() == 1) {
+			if (temp.getC() == 0) {
+				if (temp.getShape() == 0) {
 					g.setColor(Color.red);
 					g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 					g.setColor(Color.BLACK);
 					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 				}
-				if (temp.getShape() == 2) {
+				if (temp.getShape() == 1) {
 					g.setColor(Color.red);
-					g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
+					g.fillArc(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
 					g.setColor(Color.BLACK);
-					g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
+					g.drawArc(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
 				}
-				if (temp.getShape() > 2) {
+				if (temp.getShape() > 1) {
 					g.setColor(Color.red);
 					g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 					g.setColor(Color.BLACK);
-					g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 				}
 			}
 
-			if (temp.getC() == 2) {
-				if (temp.getShape() == 1) {
+			if (temp.getC() == 1) {
+				if (temp.getShape() == 0) {
 					g.setColor(Color.black);
 					g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 					g.setColor(Color.BLACK);
 					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 				}
-				if (temp.getShape() == 2) {
+				if (temp.getShape() == 1) {
 					g.setColor(Color.black);
-					g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+					g.fillArc(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
 					g.setColor(Color.BLACK);
-					g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+					g.drawArc(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
 				}
-				if (temp.getShape() > 2) {
+				if (temp.getShape() > 1) {
 					g.setColor(Color.black);
 					g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 					g.setColor(Color.BLACK);
-					g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 				}
 			}
-			if (temp.getC() == 3) {
-				if (temp.getShape() == 1) {
+			if (temp.getC() == 2) {
+				if (temp.getShape() == 0) {
 					g.setColor(Color.blue);
 					g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 					g.setColor(Color.BLACK);
 					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 				}
-				if (temp.getShape() == 2) {
+				if (temp.getShape() == 1) {
 					g.setColor(Color.blue);
-					g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+					g.fillArc(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
 					g.setColor(Color.BLACK);
-					g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+					g.drawArc(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
 				}
-				if (temp.getShape() > 2) {
+				if (temp.getShape() > 1) {
 					g.setColor(Color.blue);
+					g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					g.setColor(Color.BLACK);
+					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+				}
+			}
+			if (temp.getC() == 3) {
+				if (temp.getShape() == 0) {
+					g.setColor(Color.green);
+					g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					g.setColor(Color.BLACK);
+					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+				}
+				if (temp.getShape() == 1) {
+					g.setColor(Color.green);
+					g.fillArc(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
+					g.setColor(Color.BLACK);
+					g.drawArc(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
+				}
+				if (temp.getShape() > 1) {
+					g.setColor(Color.green);
 					g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 					g.setColor(Color.BLACK);
 					g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 				}
 			}
 			if (temp.getC() == 4) {
-				if (temp.getShape() == 1) {
-					g.setColor(Color.green);
+				if (temp.getShape() == 0) {
+					g.setColor(Color.gray);
 					g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 					g.setColor(Color.BLACK);
 					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 				}
-				if (temp.getShape() == 2) {
-					g.setColor(Color.green);
-					g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+				if (temp.getShape() == 1) {
+					g.setColor(Color.gray);
+
+					g.fillArc(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
 					g.setColor(Color.BLACK);
-					g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+					g.drawArc(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
 				}
-				if (temp.getShape() > 2) {
-					g.setColor(Color.green);
+				if (temp.getShape() > 1) {
+					g.setColor(Color.gray);
 					g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 					g.setColor(Color.BLACK);
-					g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 				}
 			}
 			if (temp.getC() == 5) {
-				if (temp.getShape() == 1) {
-					g.setColor(Color.gray);
+				if (temp.getShape() == 0) {
+					g.setColor(Color.cyan);
 					g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 					g.setColor(Color.BLACK);
 					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 				}
-				if (temp.getShape() == 2) {
-					g.setColor(Color.gray);
-
-					g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+				if (temp.getShape() == 1) {
+					g.setColor(Color.cyan);
+					g.fillArc(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
 					g.setColor(Color.BLACK);
-					g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+					g.drawArc(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
 				}
-				if (temp.getShape() > 2) {
-					g.setColor(Color.gray);
+				if (temp.getShape() > 1) {
+					g.setColor(Color.cyan);
 					g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 					g.setColor(Color.BLACK);
-					g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 				}
 			}
-			if (temp.getC() == 6) {
-				if (temp.getShape() == 1) {
-					g.setColor(Color.cyan);
-					g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-					g.setColor(Color.BLACK);
-					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-				}
-				if (temp.getShape() == 2) {
-					g.setColor(Color.cyan);
-					g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
-					g.setColor(Color.BLACK);
-					g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
-				}
-				if (temp.getShape() > 2) {
-					g.setColor(Color.cyan);
-					g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-					g.setColor(Color.BLACK);
-					g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-				}
-			}
-			if (temp.getC() > 6) {
-				if (temp.getShape() == 1) {
+			if (temp.getC() > 5) {
+				if (temp.getShape() == 0) {
 					g.setColor(Color.decode("#FF6BCE"));
 					g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 					g.setColor(Color.BLACK);
 					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 				}
-				if (temp.getShape() == 2) {
+				if (temp.getShape() == 1) {
 					g.setColor(Color.decode("#FF6BCE"));
-					g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
-					;
+					g.fillArc(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
 					g.setColor(Color.BLACK);
-					g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+					g.drawArc(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
 				}
-				if (temp.getShape() > 2) {
+				if (temp.getShape() > 1) {
 					g.setColor(Color.decode("#FF6BCE"));
 					g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 					g.setColor(Color.BLACK);
-					g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
 				}
 
 			}

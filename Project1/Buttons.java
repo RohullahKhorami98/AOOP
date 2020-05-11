@@ -1,4 +1,3 @@
-package Project;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -35,7 +34,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				Frame.text.setText("Chair");
-				Labelpos  temp = new Labelpos(0, 0, p.h, p.w , p.sc, p.shape , "Chair" , id);
+				Labelpos  temp = new Labelpos(0, 0, p.h, p.w , p.s, p.shape , "Chair" , id);
 				id++;
 				Frame.observer.set_label_list(temp);
 				
@@ -47,7 +46,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				Frame.text.setText("Bed");
-				Labelpos  temp = new Labelpos(0, 0, p.h, p.w , p.sc, p.shape , "Bed" , id);
+				Labelpos  temp = new Labelpos(0, 0, p.h, p.w , p.s, p.shape , "Bed" , id);
 				id++;
 				Frame.observer.set_label_list(temp);
 				
@@ -59,7 +58,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				Frame.text.setText("Soffa");
-				Labelpos  temp = new Labelpos(0, 0, p.h, p.w , p.sc, p.shape , "soffa",id);
+				Labelpos  temp = new Labelpos(0, 0, p.h, p.w , p.s, p.shape , "soffa",id);
 				id++;
 				Frame.observer.set_label_list(temp);
 				
@@ -71,7 +70,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				Frame.text.setText("Light");
-				Labelpos  temp = new Labelpos(0, 0, p.h, p.w , p.sc, p.shape , "Light",id);
+				Labelpos  temp = new Labelpos(0, 0, p.h, p.w , p.s, p.shape , "Light",id);
 				id++;
 				Frame.observer.set_label_list(temp);
 				
@@ -83,7 +82,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				Frame.text.setText("TV");
-				Labelpos  temp = new Labelpos(0, 0, p.h, p.w , p.sc, p.shape , "TV",id);
+				Labelpos  temp = new Labelpos(0, 0, p.h, p.w , p.s, p.shape , "TV",id);
 				id++;
 				Frame.observer.set_label_list(temp);
 				
@@ -95,7 +94,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				Frame.text.setText("Wardrobe");
 				p = new Positions();
-				Labelpos  temp = new Labelpos(0, 0, p.h, p.w , p.sc, p.shape , "Wardrobe",id);
+				Labelpos  temp = new Labelpos(0, 0, p.h, p.w , p.s, p.shape , "Wardrobe",id);
 				id++;
 				Frame.observer.set_label_list(temp);
 				

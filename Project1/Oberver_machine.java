@@ -1,10 +1,8 @@
-package Project;
-
 import java.util.ArrayList;
 
 public class Oberver_machine {
-	ArrayList<Obeserver> mylist;
-	ArrayList<Labelpos> label_list;
+	 ArrayList<Obeserver> mylist;
+	 ArrayList<Labelpos> label_list;
 	
 	public Oberver_machine() {
 		mylist = new ArrayList<>();
@@ -36,6 +34,11 @@ public class Oberver_machine {
 		for(int i = 0; i< label_list.size() ; i++) {
 			label_list.get(i).setId(i);
 		}
+		update();
+	}
+	
+	public void set_new_list(ArrayList<Labelpos> list) {
+		label_list = list;		
 		update();
 	}
 	
