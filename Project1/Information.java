@@ -1,4 +1,3 @@
-package Project;
 
 public class Information {
 	public String [] info = new String[7];

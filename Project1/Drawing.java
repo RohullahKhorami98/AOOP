@@ -1,4 +1,3 @@
-package Project;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -72,17 +71,36 @@ class Drawing extends JPanel implements Obeserver {
 
 		for (Labelpos temp : labellist) {
 			boolean draw = true;
+			
+			// door collision
 			if (temp.getX() + temp.getWidth() > 500) {
-				if (temp.getY() > 268 && temp.getY() < 368) {
+				if (temp.getY() > 268 && temp.getY() < 368)
 					draw = false;
-				}
-				if (temp.getY() + temp.getHeight() > 268 && temp.getY() + temp.getHeight() < 368) {
+				if (temp.getY() + temp.getHeight() > 268 && temp.getY() + temp.getHeight() < 368)
 					draw = false;
-				}
-				if (temp.getY() < 268 && temp.getY() + temp.getHeight() > 368) {
+				if (temp.getY() < 268 && temp.getY() + temp.getHeight() > 368)
 					draw = false;
-				}
 			}
+			// window collision
+			if (temp.getY() < 75) {
+				// Left window
+				if (temp.getX() > 152 && temp.getX() < 252)
+					draw = false;
+				if (temp.getX() + temp.getWidth()> 152 && temp.getX() + temp.getWidth() < 252)
+					draw = false;
+				if (temp.getX() < 152 && temp.getX() + temp.getWidth() > 252)
+					draw = false;
+				
+				// Right window
+				if (temp.getX() > 382 && temp.getX() < 482)
+					draw = false;
+				if (temp.getX() + temp.getWidth()> 382 && temp.getX() + temp.getWidth() < 482)
+					draw = false;
+				if (temp.getX() < 382 && temp.getX() + temp.getWidth() > 482)
+					draw = false;
+			
+			}
+			
 
 			if (draw) {
 				if (temp.getC() == 1) { 
