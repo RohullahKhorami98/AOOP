@@ -8,6 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
@@ -21,22 +22,26 @@ class Drawing extends JPanel implements Obeserver {
 
 		addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
-				int x = labellist.get(checker).getWidth();
-				int y = labellist.get(checker).getHeight();
-				if (e.getX() + x < getWidth() && e.getY() + y < getHeight()) {
-					moveSquare(e.getX(), e.getY());
+				if (labellist.size() != 0) {
+					int x = labellist.get(checker).getWidth();
+					int y = labellist.get(checker).getHeight();
+					if (e.getX() + x < getWidth() && e.getY() + y < getHeight()) {
+						moveSquare(e.getX(), e.getY());
+					}
 				}
 			}
 		});
 
 		addMouseMotionListener(new MouseAdapter() {
 			public void mouseDragged(MouseEvent e) {
-				int x = labellist.get(checker).getWidth();
-				int y = labellist.get(checker).getHeight();
+				if (labellist.size() != 0) {
+					int x = labellist.get(checker).getWidth();
+					int y = labellist.get(checker).getHeight();
 
-				if (e.getY() > 0 && e.getX() > 0 && e.getX() + x < getWidth() && e.getY() + y < getHeight()) {
+					if (e.getY() > 0 && e.getX() > 0 && e.getX() + x < getWidth() && e.getY() + y < getHeight()) {
 
-					moveSquare(e.getX(), e.getY());
+						moveSquare(e.getX(), e.getY());
+					}
 				}
 			}
 		});
@@ -61,156 +66,183 @@ class Drawing extends JPanel implements Obeserver {
 		}
 	}
 
+	@SuppressWarnings("static-access")
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		
+
 		for (Labelpos temp : labellist) {
-			
-			if (temp.getC() == 1) {
-				if (temp.getShape() == 1) {
-					g.setColor(Color.red);
-					g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-					g.setColor(Color.BLACK);
-					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+			boolean draw = true;
+			if (temp.getX() + temp.getWidth() > 500) {
+				if (temp.getY() > 268 && temp.getY() < 368) {
+					draw = false;
 				}
-				if (temp.getShape() == 2) {
-					g.setColor(Color.red);
-					g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
-					g.setColor(Color.BLACK);
-					g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
+				if (temp.getY() + temp.getHeight() > 268 && temp.getY() + temp.getHeight() < 368) {
+					draw = false;
 				}
-				if (temp.getShape() > 2) {
-					g.setColor(Color.red);
-					g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-					g.setColor(Color.BLACK);
-					g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+				if (temp.getY() < 268 && temp.getY() + temp.getHeight() > 368) {
+					draw = false;
 				}
 			}
 
-			if (temp.getC() == 2) {
-				if (temp.getShape() == 1) {
-					g.setColor(Color.black);
-					g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-					g.setColor(Color.BLACK);
-					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-				}
-				if (temp.getShape() == 2) {
-					g.setColor(Color.black);
-					g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
-					g.setColor(Color.BLACK);
-					g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
-				}
-				if (temp.getShape() > 2) {
-					g.setColor(Color.black);
-					g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-					g.setColor(Color.BLACK);
-					g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-				}
-			}
-			if (temp.getC() == 3) {
-				if (temp.getShape() == 1) {
-					g.setColor(Color.blue);
-					g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-					g.setColor(Color.BLACK);
-					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-				}
-				if (temp.getShape() == 2) {
-					g.setColor(Color.blue);
-					g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
-					g.setColor(Color.BLACK);
-					g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
-				}
-				if (temp.getShape() > 2) {
-					g.setColor(Color.blue);
-					g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-					g.setColor(Color.BLACK);
-					g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-				}
-			}
-			if (temp.getC() == 4) {
-				if (temp.getShape() == 1) {
-					g.setColor(Color.green);
-					g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-					g.setColor(Color.BLACK);
-					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-				}
-				if (temp.getShape() == 2) {
-					g.setColor(Color.green);
-					g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
-					g.setColor(Color.BLACK);
-					g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
-				}
-				if (temp.getShape() > 2) {
-					g.setColor(Color.green);
-					g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-					g.setColor(Color.BLACK);
-					g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-				}
-			}
-			if (temp.getC() == 5) {
-				if (temp.getShape() == 1) {
-					g.setColor(Color.gray);
-					g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-					g.setColor(Color.BLACK);
-					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-				}
-				if (temp.getShape() == 2) {
-					g.setColor(Color.gray);
-
-					g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
-					g.setColor(Color.BLACK);
-					g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
-				}
-				if (temp.getShape() > 2) {
-					g.setColor(Color.gray);
-					g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-					g.setColor(Color.BLACK);
-					g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-				}
-			}
-			if (temp.getC() == 6) {
-				if (temp.getShape() == 1) {
-					g.setColor(Color.cyan);
-					g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-					g.setColor(Color.BLACK);
-					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-				}
-				if (temp.getShape() == 2) {
-					g.setColor(Color.cyan);
-					g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
-					g.setColor(Color.BLACK);
-					g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
-				}
-				if (temp.getShape() > 2) {
-					g.setColor(Color.cyan);
-					g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-					g.setColor(Color.BLACK);
-					g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-				}
-			}
-			if (temp.getC() > 6) {
-				if (temp.getShape() == 1) {
-					g.setColor(Color.decode("#FF6BCE"));
-					g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-					g.setColor(Color.BLACK);
-					g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-				}
-				if (temp.getShape() == 2) {
-					g.setColor(Color.decode("#FF6BCE"));
-					g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
-					;
-					g.setColor(Color.BLACK);
-					g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
-				}
-				if (temp.getShape() > 2) {
-					g.setColor(Color.decode("#FF6BCE"));
-					g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
-					g.setColor(Color.BLACK);
-					g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+			if (draw) {
+				if (temp.getC() == 1) { 
+					if (temp.getShape() == 1) {
+						g.setColor(Color.red);
+						g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+						g.setColor(Color.BLACK);
+						g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					}
+					if (temp.getShape() == 2) {
+						g.setColor(Color.red);
+						g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
+						g.setColor(Color.BLACK);
+						g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 90, 180);
+					}
+					if (temp.getShape() > 2) {
+						g.setColor(Color.red);
+						g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+						g.setColor(Color.BLACK);
+						g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					}
 				}
 
+				if (temp.getC() == 2) {
+					if (temp.getShape() == 1) {
+						g.setColor(Color.black);
+						g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+						g.setColor(Color.BLACK);
+						g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					}
+					if (temp.getShape() == 2) {
+						g.setColor(Color.black);
+						g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+						g.setColor(Color.BLACK);
+						g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+					}
+					if (temp.getShape() > 2) {
+						g.setColor(Color.black);
+						g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+						g.setColor(Color.BLACK);
+						g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					}
+				}
+				if (temp.getC() == 3) {
+					if (temp.getShape() == 1) {
+						g.setColor(Color.blue);
+						g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+						g.setColor(Color.BLACK);
+						g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					}
+					if (temp.getShape() == 2) {
+						g.setColor(Color.blue);
+						g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+						g.setColor(Color.BLACK);
+						g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+					}
+					if (temp.getShape() > 2) {
+						g.setColor(Color.blue);
+						g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+						g.setColor(Color.BLACK);
+						g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					}
+				}
+				if (temp.getC() == 4) {
+					if (temp.getShape() == 1) {
+						g.setColor(Color.green);
+						g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+						g.setColor(Color.BLACK);
+						g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					}
+					if (temp.getShape() == 2) {
+						g.setColor(Color.green);
+						g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+						g.setColor(Color.BLACK);
+						g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+					}
+					if (temp.getShape() > 2) {
+						g.setColor(Color.green);
+						g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+						g.setColor(Color.BLACK);
+						g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					}
+				}
+				if (temp.getC() == 5) {
+					if (temp.getShape() == 1) {
+						g.setColor(Color.gray);
+						g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+						g.setColor(Color.BLACK);
+						g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					}
+					if (temp.getShape() == 2) {
+						g.setColor(Color.gray);
+
+						g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+						g.setColor(Color.BLACK);
+						g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+					}
+					if (temp.getShape() > 2) {
+						g.setColor(Color.gray);
+						g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+						g.setColor(Color.BLACK);
+						g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					}
+				}
+				if (temp.getC() == 6) {
+					if (temp.getShape() == 1) {
+						g.setColor(Color.cyan);
+						g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+						g.setColor(Color.BLACK);
+						g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					}
+					if (temp.getShape() == 2) {
+						g.setColor(Color.cyan);
+						g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+						g.setColor(Color.BLACK);
+						g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+					}
+					if (temp.getShape() > 2) {
+						g.setColor(Color.cyan);
+						g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+						g.setColor(Color.BLACK);
+						g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					}
+				}
+				if (temp.getC() > 6) {
+					if (temp.getShape() == 1) {
+						g.setColor(Color.decode("#FF6BCE"));
+						g.fillOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+						g.setColor(Color.BLACK);
+						g.drawOval(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					}
+					if (temp.getShape() == 2) {
+						g.setColor(Color.decode("#FF6BCE"));
+						g.fillRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+
+						g.setColor(Color.BLACK);
+						g.drawRoundRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight(), 30, 30);
+					}
+					if (temp.getShape() > 2) {
+						g.setColor(Color.decode("#FF6BCE"));
+						g.fillRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+						g.setColor(Color.BLACK);
+						g.drawRect(temp.getX(), temp.getY(), temp.getWidth(), temp.getHeight());
+					}
+
+				}
+			} else {
+				JOptionPane p = new JOptionPane();
+				p.showMessageDialog(null, "Can not place furniture infront of door!", "Error", p.ERROR_MESSAGE);
 			}
 		}
+
+		g.setColor(Color.decode("#CC9B5D"));
+		g.fillRect(582, 268, 10, 100);
+
+		g.setColor(Color.decode("#87CDF9"));
+		g.fillRect(382, 1, 100, 10);
+
+		g.setColor(Color.decode("#87CDF9"));
+		g.fillRect(152, 1, 100, 10);
 
 	}
 

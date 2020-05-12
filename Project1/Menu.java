@@ -113,6 +113,8 @@ public class Menu extends JMenuBar{
 					PrintWriter out = new PrintWriter(file.getPath());
 					out.println(save);
 					out.close();
+					JOptionPane p = new JOptionPane();
+					p.showMessageDialog(null, "Saved!", null ,p.INFORMATION_MESSAGE);
 				} catch (FileNotFoundException e1) {
 					e1.printStackTrace();
 				}

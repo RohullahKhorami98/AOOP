@@ -30,7 +30,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				if (p.check()) {
-					Frame.text.setText("Chair");
+					Frame.text.setText(info.info[1]);
 					Labelpos temp = new Labelpos(0, 0, p.h, p.w, p.sc, p.shape, "Chair", id);
 					id++;
 					Frame.observer.set_label_list(temp);
@@ -42,7 +42,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				if (p.check()) {
-					Frame.text.setText("Bed");
+					Frame.text.setText(info.info[2]);
 					Labelpos temp = new Labelpos(0, 0, p.h, p.w, p.sc, p.shape, "Bed", id);
 					id++;
 					Frame.observer.set_label_list(temp);
@@ -54,7 +54,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				if (p.check()) {
-					Frame.text.setText("Soffa");
+					Frame.text.setText(info.info[3]);
 					Labelpos temp = new Labelpos(0, 0, p.h, p.w, p.sc, p.shape, "soffa", id);
 					id++;
 					Frame.observer.set_label_list(temp);
@@ -67,7 +67,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				if (p.check()) {
-					Frame.text.setText("Light");
+					Frame.text.setText(info.info[4]);
 					Labelpos temp = new Labelpos(0, 0, p.h, p.w, p.sc, p.shape, "Light", id);
 					id++;
 					Frame.observer.set_label_list(temp);
@@ -80,7 +80,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				if (p.check()) {
-					Frame.text.setText("TV");
+					Frame.text.setText(info.info[5]);
 					Labelpos temp = new Labelpos(0, 0, p.h, p.w, p.sc, p.shape, "TV", id);
 					id++;
 					Frame.observer.set_label_list(temp);
@@ -93,7 +93,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				if (p.check()) {
-					Frame.text.setText("Wardrobe");
+					Frame.text.setText(info.info[6]);
 					Labelpos temp = new Labelpos(0, 0, p.h, p.w, p.sc, p.shape, "Wardrobe", id);
 					id++;
 					Frame.observer.set_label_list(temp);
