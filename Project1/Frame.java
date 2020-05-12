@@ -1,5 +1,4 @@
-
-
+package Project;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -17,7 +16,7 @@ public class Frame extends Buttons {
 	static JPanel ButtonPanel;
 	static ShopList textlist;
 	static JTextArea text;
-	
+	static Information info ;
 	static JPanel menuPanel;
 	static Drawing d;
 	static Oberver_machine observer;
@@ -26,10 +25,11 @@ public class Frame extends Buttons {
 		
 		frame = new JFrame();
 		d = new Drawing();
+		info = new Information();
 		observer = new Oberver_machine();
 		menuPanel = new JPanel();
 		ButtonPanel = new JPanel();
-		text = new JTextArea();
+		text = new JTextArea(info.info[0]);
 		textlist = new ShopList();
 		frame.setSize(800, 800);
 		text.setPreferredSize(new Dimension(100, 100));

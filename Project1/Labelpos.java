@@ -1,4 +1,4 @@
-
+package Project;
 public class Labelpos {
 
 	private int x;
