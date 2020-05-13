@@ -8,10 +8,10 @@ import javax.swing.JButton;
 /**
  * 
  * @author Rohullah khorami & William Wahlberg
- * <h> Buttons
+ * <h3> Buttons</h3>
  * <p> This class generates buttons and ActionListeners for furniture.
  * action listener calls positions to get input from user and then adds
- * a new Labelpos to the Labellist in observer_machine
+ * a new Labelpos to the Labellist in observer_machine</p>
  */
 public abstract class Buttons extends JButton{
 
