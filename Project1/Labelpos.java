@@ -1,11 +1,18 @@
 package Project;
+
+/**
+ * @author Rouhllah Khorami & William Wahlberg
+ * <h3>Labelpos</h3>
+ * <p> Labelpos is a object containing all stats about a furniture</p>
+ */
+
 public class Labelpos {
 
 	private int x;
 	private int y;
 	private int height;
 	private int width;
-	private int c ; 
+	private int c;
 	private int shape;
 	private String name;
 	private int id; 
