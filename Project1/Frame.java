@@ -1,3 +1,4 @@
+package Project;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,7 +10,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.LayoutStyle;
-
+/**
+ * 
+ * @author Rohullah Khorami & William Wahlberg
+ * <h> Frame
+ * <p> frame class is extends button class and generates a JFrame. All Gui functions have been added on
+ * frame in this class. 
+ */
 public class Frame extends Buttons {
 	static JFrame frame;
 	static JPanel ButtonPanel;

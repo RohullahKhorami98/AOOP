@@ -1,8 +1,15 @@
-
+package Project;
 import javax.swing.JOptionPane;
 
+/**
+ * 
+ * @author Rohullah Khorami & Willaim Wahlberg 
+ * <h> Position
+ * <p> position class takes input from user using input dialogs.
+ * if user clicks cancel or does not give a input, the function 
+ * will abort the process and set checkRead to false.
+ */
 public class Positions {
-
 	boolean checkRead;
 	int h = 0;
 	int w = 0;

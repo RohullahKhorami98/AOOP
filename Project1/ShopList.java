@@ -1,3 +1,4 @@
+package Project;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
@@ -11,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
+
 
 public class ShopList extends JPanel implements Obeserver{
 	ArrayList<Labelpos> templist;

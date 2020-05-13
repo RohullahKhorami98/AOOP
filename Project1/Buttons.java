@@ -1,9 +1,19 @@
+package Project;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-public abstract class Buttons extends JButton implements ActionListener {
+/**
+ * 
+ * @author Rohullah khorami & William Wahlberg
+ * <h> Buttons
+ * <p> This class generates buttons and ActionListeners for furniture.
+ * action listener calls positions to get input from user and then adds
+ * a new Labelpos to the Labellist in observer_machine
+ */
+public abstract class Buttons extends JButton{
 
 	JButton[] button;
 	public int size = 6;
@@ -31,7 +41,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 					Frame.text.setText(info.info[1]);
 					Labelpos temp = new Labelpos(0, 0, p.h, p.w, p.sc, p.shape, "Chair", id);
 					id++;
-					Frame.observer.set_label_list(temp);
+					Frame.observer.add_to_labellist(temp);
 				}
 			}
 		});
@@ -43,7 +53,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 					Frame.text.setText(info.info[2]);
 					Labelpos temp = new Labelpos(0, 0, p.h, p.w, p.sc, p.shape, "Bed", id);
 					id++;
-					Frame.observer.set_label_list(temp);
+					Frame.observer.add_to_labellist(temp);
 				}
 			}
 		});
@@ -55,7 +65,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 					Frame.text.setText(info.info[3]);
 					Labelpos temp = new Labelpos(0, 0, p.h, p.w, p.sc, p.shape, "soffa", id);
 					id++;
-					Frame.observer.set_label_list(temp);
+					Frame.observer.add_to_labellist(temp);
 
 				}
 			}
@@ -68,7 +78,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 					Frame.text.setText(info.info[4]);
 					Labelpos temp = new Labelpos(0, 0, p.h, p.w, p.sc, p.shape, "Light", id);
 					id++;
-					Frame.observer.set_label_list(temp);
+					Frame.observer.add_to_labellist(temp);
 
 				}
 			}
@@ -81,7 +91,7 @@ public abstract class Buttons extends JButton implements ActionListener {
 					Frame.text.setText(info.info[5]);
 					Labelpos temp = new Labelpos(0, 0, p.h, p.w, p.sc, p.shape, "TV", id);
 					id++;
-					Frame.observer.set_label_list(temp);
+					Frame.observer.add_to_labellist(temp);
 				}
 
 			}
@@ -94,16 +104,11 @@ public abstract class Buttons extends JButton implements ActionListener {
 					Frame.text.setText(info.info[6]);
 					Labelpos temp = new Labelpos(0, 0, p.h, p.w, p.sc, p.shape, "Wardrobe", id);
 					id++;
-					Frame.observer.set_label_list(temp);
+					Frame.observer.add_to_labellist(temp);
 
 				}
 
 			}
 		});
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-
 	}
 }

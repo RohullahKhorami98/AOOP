@@ -1,7 +1,4 @@
-/**
- * 
- */
-
+package Project;
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,15 +16,21 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+/**
+ * @author Rohullah Khorami & William Wahlberg
+ * <h> Menu
+ * <p> Generates a custom Menu, in menu there are File JMenu and Help JMenu
+ * in JMenu File there are save close open and export as list options 
+ * you can save your desgin as coordinates and also as a list and you can open them by
+ * open option as a workspace on roomsketcher. Help menu helps you to search on google 
+ * it is just an extra option.
+ */
+
 @SuppressWarnings("serial")
 public class Menu extends JMenuBar{
 
 	static JMenu File;
 	static JMenu HELP;
-	static JMenu Edit;
-	static JMenuItem Action;
-	static JMenuItem min;
-	static JMenuItem max;
 	static JMenuItem Save;
 	static JMenuItem close;
 	static JMenuItem open;
@@ -41,24 +44,17 @@ public class Menu extends JMenuBar{
 		new JMenuBar();
 		menu_bar();
 		add(File);
-		add(Edit);
 		add(HELP);
 		LabelposList = new ArrayList<Labelpos>();
 
 	}
 
 	public void menu_bar() {
-
-		Action = new JMenuItem("Action");
-		min = new JMenuItem("Minimize");
-		max = new JMenuItem("Maximize");
-
 		File = new JMenu("File");
 		HELP = new JMenu("Help");
-		Edit = new JMenu("Edit");
+		
 
-		Edit.add(min);
-		Edit.add(max);
+	
 
 		open = new JMenuItem("Open");
 		open.addActionListener(new ActionListener() {
@@ -118,7 +114,7 @@ public class Menu extends JMenuBar{
 					out.println(save);
 					out.close();
 					JOptionPane p = new JOptionPane();
-					p.showMessageDialog(null, "Saved!", null ,p.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Saved!", null ,JOptionPane.INFORMATION_MESSAGE);
 				} catch (FileNotFoundException e1) {
 					e1.printStackTrace();
 				}
@@ -140,7 +136,7 @@ public class Menu extends JMenuBar{
 						furTypes[0]++;
 					if(i.getName().equals("Bed"))
 						furTypes[1]++;
-					if(i.getName().equals("Soffa"))
+					if(i.getName().equals("soffa"))
 						furTypes[2]++;
 					if(i.getName().equals("Light"))
 						furTypes[3]++;

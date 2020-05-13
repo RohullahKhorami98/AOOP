@@ -1,4 +1,11 @@
-
+package Project;
+/**
+ * 
+ * @author Rohullah khorami & William Wahlberg
+ * <h> Information
+ * <p> This class gives information about furniture and also contians instruction for working on room.
+ *
+ */
 public class Information {
 	public String [] info = new String[7];
 	public Information() {

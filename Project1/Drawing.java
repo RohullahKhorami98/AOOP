@@ -1,4 +1,4 @@
-
+package Project;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -10,12 +10,26 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-@SuppressWarnings("serial")
+
+/**
+ * @author Rohullah Khorami & William Wahlberg
+ *
+ * <h> Drawing</h>
+ * <p> Drawing generates a JPanel for drawing and designing a room.
+ * It also detects mouse inputs and draw furniture in the room.</p>
+ */
+
 class Drawing extends JPanel implements Obeserver {
 	static ArrayList<Labelpos> labellist;
 	int checker = 0;
 	Boolean firsttime = true;
 
+	/**
+	 * <h>Drawing()</h>
+	 * <p>is constructor for class. It generates mouse listener that will call moveSquare</p>
+	 * <p></p>every time the mouse is pressed or dragged</p>
+	 * <p>@return A JPanel to draw furniture on and mouse listener</p>
+	 */
 	public Drawing() {
 		labellist = new ArrayList<>();
 
@@ -47,6 +61,13 @@ class Drawing extends JPanel implements Obeserver {
 
 	}
 
+	/**
+	 * <h>Mouse Objects</h>
+	 * @param x is the x-axis coordinates 
+	 * @param y is the y-axis coordinates 
+	 * this function gives gets the x and y coordinates and gives the object a new coordinate 
+	 * and than repaint it. 
+	 */
 	private void moveSquare(int x, int y) {
 
 		int a = labellist.get(checker).getWidth();
@@ -64,8 +85,9 @@ class Drawing extends JPanel implements Obeserver {
 
 		}
 	}
-
-	@SuppressWarnings("static-access")
+	/**
+	 * paintComponent draws every furniture in labellist
+	 */
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
@@ -249,7 +271,7 @@ class Drawing extends JPanel implements Obeserver {
 				}
 			} else {
 				JOptionPane p = new JOptionPane();
-				p.showMessageDialog(null, "Can not place furniture infront of door!", "Error", p.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Can not place furniture infront of door!", "Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 
@@ -264,6 +286,12 @@ class Drawing extends JPanel implements Obeserver {
 
 	}
 
+	/**
+	 * insert() function call addall().
+	 * 
+	 * @Precondition checks for the first time we draw a shape. this condition to move the latest inserted
+	 * shape .
+	  */
 	public void insert() {
 
 		addall();
@@ -274,6 +302,9 @@ class Drawing extends JPanel implements Obeserver {
 		firsttime = false;
 	}
 
+	/**
+	 * addall() function loops inside the labellist and repaint it and then used in insert function 
+	 */
 	public void addall() {
 		for (Labelpos temp : labellist) {
 			repaint();
@@ -282,13 +313,16 @@ class Drawing extends JPanel implements Obeserver {
 		repaint();
 	}
 
+	/**
+	 * update() it updates the list
+	 */
 	@Override
 	public void update(ArrayList<Labelpos> list) {
 		labellist = list;
 		insert();
 		repaint();
 	}
-
+	
 	public void check_updater(int checking) {
 		checker = checking;
 	}
