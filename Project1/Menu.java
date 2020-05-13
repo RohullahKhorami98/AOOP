@@ -1,4 +1,4 @@
-package Project;
+package Project1;
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,12 +18,12 @@ import javax.swing.JOptionPane;
 
 /**
  * @author Rohullah Khorami & William Wahlberg
- * <h> Menu
- * <p> Generates a custom Menu, in menu there are File JMenu and Help JMenu
+ * <h1> Menu</h1>
+ * <p1> Generates a custom Menu, in menu there are File JMenu and Help JMenu
  * in JMenu File there are save close open and export as list options 
  * you can save your desgin as coordinates and also as a list and you can open them by
  * open option as a workspace on roomsketcher. Help menu helps you to search on google 
- * it is just an extra option.
+ * it is just an extra option.</p1>
  */
 
 @SuppressWarnings("serial")

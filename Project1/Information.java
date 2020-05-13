@@ -1,9 +1,10 @@
-package Project;
+package Project1;
 /**
  * 
  * @author Rohullah khorami & William Wahlberg
- * <h> Information
- * <p> This class gives information about furniture and also contians instruction for working on room.
+ * 
+ * <h1> Information</h1>
+ * <p1> This class gives information about furniture and also contians instruction for working on room.</p1>
  *
  */
 public class Information {

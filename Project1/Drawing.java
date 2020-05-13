@@ -1,4 +1,4 @@
-package Project;
+package Project1;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -14,9 +14,9 @@ import javax.swing.JPanel;
 /**
  * @author Rohullah Khorami & William Wahlberg
  *
- * <h> Drawing</h>
- * <p> Drawing generates a JPanel for drawing and designing a room.
- * It also detects mouse inputs and draw furniture in the room.</p>
+ * <h1> Drawing</h1>
+ * <p1> Drawing generates a JPanel for drawing and designing a room.
+ * It also detects mouse inputs and draw furniture in the room.</p1>
  */
 
 class Drawing extends JPanel implements Obeserver {
@@ -25,10 +25,10 @@ class Drawing extends JPanel implements Obeserver {
 	Boolean firsttime = true;
 
 	/**
-	 * <h>Drawing()</h>
-	 * <p>is constructor for class. It generates mouse listener that will call moveSquare</p>
-	 * <p></p>every time the mouse is pressed or dragged</p>
-	 * <p>@return A JPanel to draw furniture on and mouse listener</p>
+	 * <h2>Drawing()</h2>
+	 * <p2>is constructor for class. It generates mouse listener that will call moveSquare</p2>
+	 * <p3>every time the mouse is pressed or dragged</p3>
+	 * <p4>@return A JPanel to draw furniture on and mouse listener</p4>
 	 */
 	public Drawing() {
 		labellist = new ArrayList<>();
@@ -62,11 +62,11 @@ class Drawing extends JPanel implements Obeserver {
 	}
 
 	/**
-	 * <h>Mouse Objects</h>
-	 * @param x is the x-axis coordinates 
-	 * @param y is the y-axis coordinates 
+	 * <h3>Mouse Objects</h3>
+	 * <p4>@param x is the x-axis coordinates
+	 *	@param y is the y-axis coordinates 
 	 * this function gives gets the x and y coordinates and gives the object a new coordinate 
-	 * and than repaint it. 
+	 * and than repaint it. </p4>
 	 */
 	private void moveSquare(int x, int y) {
 
@@ -86,7 +86,8 @@ class Drawing extends JPanel implements Obeserver {
 		}
 	}
 	/**
-	 * paintComponent draws every furniture in labellist
+	 * <h4>paintComponent </h4>
+	 * <p>draws every furniture in labellist</p>
 	 */
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -287,10 +288,10 @@ class Drawing extends JPanel implements Obeserver {
 	}
 
 	/**
-	 * insert() function call addall().
-	 * 
+	 * <h5>insert()</h5> 
+	 * <p>function call addall().
 	 * @Precondition checks for the first time we draw a shape. this condition to move the latest inserted
-	 * shape .
+	 * shape.</p>
 	  */
 	public void insert() {
 
@@ -303,7 +304,8 @@ class Drawing extends JPanel implements Obeserver {
 	}
 
 	/**
-	 * addall() function loops inside the labellist and repaint it and then used in insert function 
+	 * <h6>addall() </h6>
+	 * <p>function loops inside the labellist and repaint it and then used in insert function </p>
 	 */
 	public void addall() {
 		for (Labelpos temp : labellist) {
@@ -314,7 +316,8 @@ class Drawing extends JPanel implements Obeserver {
 	}
 
 	/**
-	 * update() it updates the list
+	 * <h7>update() </h7>
+	 * <p>it updates the list</p>
 	 */
 	@Override
 	public void update(ArrayList<Labelpos> list) {

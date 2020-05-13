@@ -1,10 +1,10 @@
-package Project;
+package Project1;
 import java.util.ArrayList;
 /**
  * @author Rohullah Khorami & William Wahlberg
- * <h> Observer_machine</h> 
- * <p> observer_machine is a observer patern that 
- * updates all lists containing current furniture in the room</p>
+ * <h1> Observer_machine</h1> 
+ * <p1> observer_machine is a observer patern that 
+ * updates all lists containing current furniture in the room</p1>
  */
 public class Oberver_machine {
 	 ArrayList<Obeserver> mylist;
@@ -32,7 +32,7 @@ public class Oberver_machine {
 		mylist.add(input);
 	}
 	/** 
-	 * <h>Update() 
+	 * <h2>Update() </h2>
 	 * <p>updates all classes that impliments observer
 	 */
 	public void update() {
