@@ -11,11 +11,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.LayoutStyle;
 /**
- * 
  * @author Rohullah Khorami & William Wahlberg
- * <h> Frame
+ * </h> Frame </h3>
  * <p> frame class is extends button class and generates a JFrame. All Gui functions have been added on
- * frame in this class. 
+ * frame in this class. </p>
  */
 public class Frame extends Buttons {
 	static JFrame frame;
