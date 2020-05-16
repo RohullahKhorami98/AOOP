@@ -10,10 +10,11 @@ package Project1;
 public class Information {
 	public String [] info = new String[7];
 	public Information() {
-		String information = "To select a Furniture from shoping list or in order to move a furniture\n "
-				+ "Just left click on it & to delet it right click on it\n "
+		String information = "Select a new furniture by pressing a button.\n"
+				+ "Use the mouse to move it around in the room.\n"
+				+ "Left click a furniture in the left list to move if or right click to remove.\n"
 				+ "inputs for shape and color can not be nagative or zero, Height of the furniture can not \n"
-				+ "be bigger than 250 and less 1. Width can not be bigger than 200, and less than 1. ";
+				+ "be bigger than 250 and less 1. Width can not be bigger than 200, and less than 1.";
 		info[0] = information;
 		String chair = "The chair has different shapes and different colors";
 		info[1] = chair;
