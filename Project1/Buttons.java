@@ -1,4 +1,3 @@
-package Project;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,7 +37,7 @@ public abstract class Buttons extends JButton{
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				if (p.check()) {
-					Frame.text.setText(info.info[1]);
+					Frame.text.setText(info.info[0]);
 					Labelpos temp = new Labelpos(0, 0, p.h, p.w, p.sc, p.shape, "Chair", id);
 					id++;
 					Frame.observer.add_to_labellist(temp);
@@ -50,7 +49,7 @@ public abstract class Buttons extends JButton{
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				if (p.check()) {
-					Frame.text.setText(info.info[2]);
+					Frame.text.setText(info.info[0]);
 					Labelpos temp = new Labelpos(0, 0, p.h, p.w, p.sc, p.shape, "Bed", id);
 					id++;
 					Frame.observer.add_to_labellist(temp);
@@ -62,7 +61,7 @@ public abstract class Buttons extends JButton{
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				if (p.check()) {
-					Frame.text.setText(info.info[3]);
+					Frame.text.setText(info.info[0]);
 					Labelpos temp = new Labelpos(0, 0, p.h, p.w, p.sc, p.shape, "soffa", id);
 					id++;
 					Frame.observer.add_to_labellist(temp);
@@ -75,7 +74,7 @@ public abstract class Buttons extends JButton{
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				if (p.check()) {
-					Frame.text.setText(info.info[4]);
+					Frame.text.setText(info.info[0]);
 					Labelpos temp = new Labelpos(0, 0, p.h, p.w, p.sc, p.shape, "Light", id);
 					id++;
 					Frame.observer.add_to_labellist(temp);
@@ -88,7 +87,7 @@ public abstract class Buttons extends JButton{
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				if (p.check()) {
-					Frame.text.setText(info.info[5]);
+					Frame.text.setText(info.info[0]);
 					Labelpos temp = new Labelpos(0, 0, p.h, p.w, p.sc, p.shape, "TV", id);
 					id++;
 					Frame.observer.add_to_labellist(temp);
@@ -101,7 +100,7 @@ public abstract class Buttons extends JButton{
 			public void actionPerformed(ActionEvent e) {
 				p = new Positions();
 				if (p.check()) {
-					Frame.text.setText(info.info[6]);
+					Frame.text.setText(info.info[0]);
 					Labelpos temp = new Labelpos(0, 0, p.h, p.w, p.sc, p.shape, "Wardrobe", id);
 					id++;
 					Frame.observer.add_to_labellist(temp);

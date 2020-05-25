@@ -1,4 +1,4 @@
-package Project1;
+
 /**
  * @author William Wahlberg and Rohullah Khorami
  * <h1>Room designer</h1>
